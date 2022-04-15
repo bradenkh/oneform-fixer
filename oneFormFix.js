@@ -166,6 +166,9 @@ document.body.onload = function () {
    document.querySelector(".form-group.gutter-top").remove();
    document.querySelector("#attribute12375Choice38015").remove();
    document.querySelector("#static-1676498-grp").remove();
+   document.querySelector("#static-1676550-grp").remove();
+   document.querySelector("#attribute12375-grp").remove();
+   document.querySelector("#static-1676550-grp").remove();
    document.querySelector("#attribute12375-grp").remove();
    document.querySelector("#attribute11452-grp").remove();
    document.querySelector("#attribute50-grp").remove();
