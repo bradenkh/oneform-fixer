@@ -499,7 +499,7 @@ function updateKBiFrame(link) {
    setKbSrc(link);
 }
 
-document.body.onload = function () {
+function driver() {
    // add observer for tags
    const tagObserver = new MutationObserver(function () {
       var optionId = document.getElementById("attribute10333").value;
@@ -529,4 +529,11 @@ document.body.onload = function () {
    // document
    //     .querySelector("main")
    //     .setAttribute("style", "display: grid; grid-template-columns: auto auto;");
-};
+}
+
+// if the document isn't loaded wait until it is
+document.body.onload = driver;
+// if document is already loaded, run the driver
+if (document.readyState === "complete") {
+   driver();
+}
