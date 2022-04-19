@@ -432,7 +432,14 @@ const optionToKBDict = {
    "Zoom Help": "http://byui-ilearn.screenstepslive.com/m/71699",
 };
 
-var openOnSide = true;
+function openInNewWindow(link) {
+   window.open(
+      link,
+      "customWindow",
+      "width=960, height=1040, top=0, left=0",
+      "noopener"
+   );
+}
 
 function getKBLink(optionId) {
    var link = false;
@@ -479,6 +486,7 @@ function updateKBiFrame(link) {
       // kbIFrame.style.margin = "20px";
       // kbIFrame.classList.add("col-sm-7");
       kbIFrame.style.border = "1px solid #ddd";
+      setKbSrc(link);
       kbDiv.appendChild(kbIFrame);
       fixCSS();
       document.querySelector(".row").appendChild(kbDiv);
@@ -501,6 +509,7 @@ function driver() {
       var optionId = document.getElementById("attribute10333").value;
       var kbLink = getKBLink(optionId);
       if (kbLink) {
+         openInNewWindow(kbLink);
          updateKBiFrame(kbLink);
       }
    });
