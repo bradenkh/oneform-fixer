@@ -1,11 +1,3 @@
-/*
-Ideas from phones agents
-kb on the side instead of inside the oneform
-see requestor info on oneform
-options popup for agents
-be able to switch kbs easily (buttons?)
-dark mode (probably not)
-*/
 const optionToKBDict = {
    "Academic Deadlines":
       "https://www.byui.edu/student-records/academic-deadlines",
