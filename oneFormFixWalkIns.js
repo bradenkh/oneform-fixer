@@ -428,16 +428,8 @@ const optionToKBDict = {
    "Zoom Help": "https://byui-ilearn.screenstepslive.com/m/71699",
 };
 
-function openInNewWindow(link) {
-   window.open(
-      link,
-      "customWindow",
-      "width=960, height=1040, top=0, left=0",
-      "noopener"
-   );
-}
-
 function getKBLink(optionId) {
+   const hideNavAndFooter = true;
    var link = false;
    if (document.querySelector("option[value='" + optionId + "'")) {
       link =
@@ -445,6 +437,11 @@ function getKBLink(optionId) {
             document.querySelector("option[value='" + optionId + "'")
                .textContent
          ];
+   }
+   if (hideNavAndFooter) {
+      if (link.includes("td.byui.edu")) {
+         link += "&ShowNav=false&ShowFoot=false";
+      }
    }
    console.log(link);
    return link;
@@ -503,9 +500,11 @@ function updateKBiFrame(link) {
 function driver() {
    // add observer for tags
    const tagObserver = new MutationObserver(function () {
+      console.log("hello");
       var optionId = document.getElementById("attribute10333").value;
       var kbLink = getKBLink(optionId);
       if (kbLink) {
+         console.log(optionId);
          updateKBiFrame(kbLink);
       }
    });
@@ -518,13 +517,10 @@ function driver() {
    //Remove needless html on the page
    document.querySelector(".form-group.gutter-top").remove();
    document.querySelector("#attribute12375Choice38015").remove();
-   document.querySelector("#static-1676498-grp").remove();
-   document.querySelector("#static-1676550-grp").remove();
-   document.querySelector("#attribute12375-grp").remove();
-   document.querySelector("#static-1676550-grp").remove();
-   document.querySelector("#attribute12375-grp").remove();
    document.querySelector("#attribute11452-grp").remove();
    document.querySelector("#attribute50-grp").remove();
+   document.querySelector("#static-1680238-grp").remove();
+   document.querySelector("#attribute10379-grp").remove();
 
    // insert kb on the side
    // document
