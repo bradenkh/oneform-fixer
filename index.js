@@ -14,4 +14,4 @@ http
       // We replaced all the event handlers with a simple call to readStream.pipe()
       readStream.pipe(response);
    })
-   .listen(process.env.PORT || 5000);
+   .listen(process.env.PORT || 8080);
