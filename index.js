@@ -7,6 +7,17 @@ const PORT = process.env.PORT || 8080;
 
 const app = express();
 
+// app settings
+app.set("view engine", "ejs");
+app.set("views", "views");
+
+app.get("/", (req, res) => {
+   res.render("login", {
+      pageTitle: "login",
+      path: "/",
+   });
+});
+
 app.get("/phones", (req, res) => {
    res.sendFile(path.join(__dirname, "/oneFormFixPhones.js"));
 });
