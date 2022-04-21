@@ -12,7 +12,7 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.get(
-   "/",
+   "/update",
    (req,
    (res) => {
       res.send({ message: "call was successful" });
